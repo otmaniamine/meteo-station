@@ -1,4 +1,4 @@
-const int hallPin = 4; // Pin connected to Hall effect sensor
+const int hallPin = 2; // Pin connected to Hall effect sensor
 
 void setup() {
   Serial.begin(9600);

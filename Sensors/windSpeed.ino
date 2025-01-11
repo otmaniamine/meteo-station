@@ -1,5 +1,5 @@
 // Pin connected to the Hall effect sensor
-const int hallPin = 4;
+const int hallPin = 13;
 
 // Constants
 const float vaneDiameter = 0.29; // Diameter of the vane in meters (29 cm)

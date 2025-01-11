@@ -1,7 +1,7 @@
-const int hallPinEast = 4;   // Pin connected to Hall effect sensor for East
-const int hallPinNorth = 5;  // Pin connected to Hall effect sensor for North
-const int hallPinWest = 18;  // Pin connected to Hall effect sensor for West
-const int hallPinSouth = 21; // Pin connected to Hall effect sensor for South
+const int hallPinEast = 22;   // Pin connected to Hall effect sensor for East , org 
+const int hallPinNorth = 15;  // Pin connected to Hall effect sensor for North , move
+const int hallPinWest = 18;  // Pin connected to Hall effect sensor for West,gris
+const int hallPinSouth = 21; // Pin connected to Hall effect sensor for South,marron-blue
 
 void setup() {
   Serial.begin(9600);
