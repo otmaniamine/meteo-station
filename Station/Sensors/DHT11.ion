@@ -1,0 +1,28 @@
+#include "DHT.h"
+#define DHTTYPE DHT11
+const int DHTPin = 5; // Pin de connexion du capteur DHT11
+DHT dht(DHTPin, DHTTYPE);
+
+void setup() {
+  Serial.begin(115200);
+  dht.begin();
+}
+
+void loop() {
+  float t = dht.readTemperature();
+  float h = dht.readHumidity();
+
+  if (isnan(t) || isnan(h)) {
+    Serial.println("Échec de lecture du DHT11 !");
+    return;
+  }
+
+  Serial.print("Température: ");
+  Serial.print(t);
+  Serial.println(" °C");
+
+  Serial.print("Humidité: ");
+  Serial.print(h);
+  Serial.println(" %");
+  delay(2000);
+}
