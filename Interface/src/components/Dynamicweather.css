@@ -1,0 +1,56 @@
+/* Section pour la météo (Soleil ou Pluie) */
+.sun-animation {
+  background: linear-gradient(to top, #ffeb3b, #fff);
+}
+
+.rain-animation {
+  background: linear-gradient(to top, #536dfe, #b3c7ff);
+}
+
+/* Animation 3D du Soleil */
+.sun-3d {
+  background: radial-gradient(circle, #ffeb3b 40%, #fff 80%);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  box-shadow: 0px 0px 80px rgba(255, 223, 51, 0.6);
+  animation: sun-move 4s ease-in-out infinite;
+  transform: rotate(0deg);
+}
+
+/* Animation 3D de la pluie */
+.rain-3d {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 10%, rgba(0, 0, 255, 0.5) 50%);
+  height: 100px;
+  width: 100px;
+  animation: rain-move 3s ease-in-out infinite;
+  transform: rotate(0deg);
+  border-radius: 15px;
+  box-shadow: 0px 0px 30px rgba(0, 0, 255, 0.3);
+}
+
+/* Animation de mouvement du Soleil */
+@keyframes sun-move {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(15deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+/* Animation de mouvement de la pluie */
+@keyframes rain-move {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(15deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
