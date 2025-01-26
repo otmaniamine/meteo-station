@@ -13,7 +13,7 @@ const char* password = "911amine";    // Your WiFi password
 
 //----------------------------------------Host & Script ID
 const char* host = "script.google.com";
-String GAS_ID = "AKfycbzUciUEvTM0dgRmWjCLryqXRygH3yKKxMQofiyi8Un1Lx8isFdLwFiY2z_Ut_76Xd7XOg"; // Spreadsheet Script ID
+String GAS_ID = "AKfycbxbSMzUoOboMM7FeRx7nA6fSwHzXlI9wBJlslSY2kcWMwaRyMJjUhenvuzdDeYUuIDsOw"; // Spreadsheet Script ID
 
 // Pins for Hall effect sensors
 const int hallPinEast = 22;  
@@ -24,9 +24,6 @@ const int hallPinSouth = 21;
 // Pin for wind speed sensor
 const int hallPinSpeed = 13;
 
-// Pin for LDR
-const int ldrPin = 4;
-int sensorValue =66;
 // Wind speed constants
 const float vaneDiameter = 0.29; // Diameter of the vane in meters (29 cm)
 const float vaneCircumference = vaneDiameter * 3.1415; // Circumference in meters
@@ -61,8 +58,6 @@ void setup() {
   pinMode(hallPinSpeed, INPUT_PULLUP);
   attachInterrupt(digitalPinToInterrupt(hallPinSpeed), countRotation, RISING);
 
-  pinMode(ldrPin, INPUT);
-
   //----------------------------------------Wait for connection
   Serial.print("Connecting to WiFi");
   while (WiFi.status() != WL_CONNECTED) {
@@ -81,7 +76,6 @@ void setup() {
 }
 
 void loop() {
-  int sensorValue = analogRead(ldrPin);
   // Reading temperature and humidity
   int h = dht.readHumidity();
   float t = dht.readTemperature();
@@ -89,17 +83,6 @@ void loop() {
 
   // Calculate wind speed
   float windSpeed = calculateWindSpeed();
-
-  // Read luminosity
-
-  Serial.print("sensorValue  ");
-  Serial.println(sensorValue);
-  float luminosity = 100.0 - ((float)sensorValue / 4095.0) * 100.0; 
-  Serial.print("Value 1 ");
-  Serial.println(luminosity);
-  luminosity = constrain(luminosity, 0.0, 100.0);
-  Serial.print("Value 2 ");
-  Serial.println(luminosity);
 
   if (isnan(h) || isnan(t)) {
     Serial.println("Failed to read from DHT sensor!");
@@ -110,14 +93,12 @@ void loop() {
   String Temp = "Temperature: " + String(t) + " °C";
   String Humi = "Humidity: " + String(h) + " %";
   String Speed = "Wind Speed: " + String(windSpeed) + " m/s";
-  String Lum = "Luminosity: " + String(luminosity) + " %";
   Serial.println(Temp);
   Serial.println(Humi);
   Serial.println(Speed);
-  Serial.println(Lum);
   Serial.println("Wind Direction: " + windDirection);
 
-  sendData(t, h, luminosity, windDirection, windSpeed); // Call sendData subroutine
+  sendData(t, h, windDirection, windSpeed); // Call sendData subroutine
   delay(10000);   // Send data every 10 seconds
 }
 
@@ -156,15 +137,14 @@ float calculateWindSpeed() {
 }
 
 // Subroutine for sending data to Google Sheets
-void sendData(float tem, int hum, float lum, String windDir, float windSpeed) {
+void sendData(float tem, int hum, String windDir, float windSpeed) {
   if (WiFi.status() == WL_CONNECTED) { // Ensure WiFi is connected
     HTTPClient http;
 
     String string_temperature = String(tem);
     String string_humidity = String(hum);
-    String string_luminosity = String(lum);
     String string_windSpeed = String(windSpeed);
-    String url = "https://" + String(host) + "/macros/s/" + GAS_ID + "/exec?temperature=" + string_temperature + "&humidity=" + string_humidity + "&luminosity=" + string_luminosity + "&wind_direction=" + windDir + "&wind_speed=" + string_windSpeed;
+    String url = "https://" + String(host) + "/macros/s/" + GAS_ID + "/exec?temperature=" + string_temperature + "&humidity=" + string_humidity + "&luminosity=" + "69"+ "&wind_direction=" + windDir + "&wind_speed=" + string_windSpeed + "&rainy=" + "0" ;
 
     Serial.print("Sending data to: ");
     Serial.println(url);
