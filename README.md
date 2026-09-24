@@ -119,6 +119,7 @@ $$
 #### Wind Direction System
 
 Four Hall sensors are oriented in a cross pattern (North, South, East, West). When the magnet passes between two cardinal points, adjacent sensors activate simultaneously, resolving 8 distinct directions: `N`, `N-E`, `E`, `S-E`, `S`, `S-W`, `W`, and `N-W`.
+![alt text](https://github.com/otmaniamine/meteo-station/blob/main/figures/anemometre%20design%20for%20direction%20and%20speed.png)
 
 ### Wiring and Circuitry
 
