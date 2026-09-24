@@ -124,8 +124,11 @@ Four Hall sensors are oriented in a cross pattern (North, South, East, West). Wh
 ### Wiring and Circuitry
 
 The electronics are housed inside a semi-open, weather-resistant PVC enclosure ensuring continuous airflow for DHT11 accuracy while protecting circuitry from moisture and direct dust exposure.
+![alt text](https://github.com/otmaniamine/meteo-station/blob/main/figures/shema.png)
+![alt text](https://github.com/otmaniamine/meteo-station/blob/main/figures/final%20coception.png)
 
 ## 2. IoT Data Pipeline
+![alt text](https://github.com/otmaniamine/meteo-station/blob/main/figures/IOT.png)
 
 ### Data Flow
 
@@ -188,6 +191,7 @@ Total params: 17,937 (Trainable params: 17,937)
   * RMSE: $0.26^\circ\text{C}$
 
   * $R^2$ Score: $\approx 0.98$
+![alt text](https://github.com/otmaniamine/meteo-station/blob/main/figures/train%20ai%20prediction%20test.png)
 
 ### Automated Inference Pipeline
 
@@ -202,6 +206,7 @@ A Python automation service bridges live telemetry and the trained neural networ
 4. Writes the predicted values back to Google Sheets via batch updating for dashboard display.
 
 ## 4. Web Dashboard and User Interface
+![alt text](https://github.com/otmaniamine/meteo-station/blob/main/figures/weather%20station%20ensta%20landing%20page%20of%20website.png)
 
 The frontend provides real-time situational awareness and analytical trends for end users.
 
@@ -216,6 +221,7 @@ The frontend provides real-time situational awareness and analytical trends for 
   * AI Predictions Panel: Displays projected temperature variations.
 
   * Historical Summary: Tabular records organized by day.
+  ![alt text](https://github.com/otmaniamine/meteo-station/blob/main/figures/interface%20of%20website.png)
 
 ## Getting Started
 
