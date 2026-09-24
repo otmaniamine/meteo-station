@@ -308,4 +308,4 @@ Developed by engineering students at the National Higher School of Advanced Tech
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/otmaniamine/meteo-station/blob/main/LICENSE.md) file for details.
